@@ -48,8 +48,8 @@ export function RevenueChart({ data }: { data: RevenuePoint[] }) {
             fontSize: 12,
           }}
           labelFormatter={(label) => shortDate(String(label))}
-          formatter={(value: number, name) => [
-            name === 'revenue' ? formatPrice(value) : value,
+          formatter={(value, name) => [
+            name === 'revenue' ? formatPrice(value as number) : (value as number),
             name === 'revenue' ? 'Revenue' : 'Orders',
           ]}
         />

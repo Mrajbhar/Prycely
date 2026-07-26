@@ -41,7 +41,7 @@ export function TopProductsChart({ data }: { data: TopProduct[] }) {
         <Tooltip
           cursor={{ fill: chartColors.brandTint }}
           contentStyle={{ borderRadius: 10, border: `1px solid ${chartColors.line}`, fontSize: 12 }}
-          formatter={(value: number) => [value, 'Units sold']}
+          formatter={(value) => [value as number, 'Units sold']}
         />
 
         <Bar dataKey="unitsSold" fill={chartColors.brand} radius={[0, 4, 4, 0]} barSize={18} />

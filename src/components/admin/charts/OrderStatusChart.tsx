@@ -29,12 +29,9 @@ export function OrderStatusChart({ data }: { data: OrderStatusCount[] }) {
 
         <Tooltip
           contentStyle={{ borderRadius: 10, border: '1px solid #e4e2ea', fontSize: 12 }}
-          formatter={(value: number, name) => [value, name]}
+          formatter={(value, name) => [value as number, name]}
         />
-        <Legend
-          iconType="circle"
-          wrapperStyle={{ fontSize: 12 }}
-        />
+        <Legend iconType="circle" wrapperStyle={{ fontSize: 12 }} />
       </PieChart>
     </ResponsiveContainer>
   );
