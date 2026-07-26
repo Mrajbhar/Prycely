@@ -7,16 +7,18 @@ import { queryClient } from './app/queryClient';
 import { store } from './app/store';
 import './index.css';
 import { ToastProvider } from './components/ui/Toast';
-
+import { WakeUpGate } from './components/WakeUpGate';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <ToastProvider>
-          <App />
-        </ToastProvider>
-      </QueryClientProvider>
-    </Provider>
+    <WakeUpGate>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <ToastProvider>
+            <App />
+          </ToastProvider>
+        </QueryClientProvider>
+      </Provider>
+    </WakeUpGate>
   </StrictMode>,
 );
