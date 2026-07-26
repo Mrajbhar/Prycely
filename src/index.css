@@ -1,0 +1,77 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Black & white foundation */
+  --color-ink: #111111;          /* near-black text, logo, primary buttons */
+  --color-ink-soft: #444444;     /* secondary text */
+  --color-muted: #999999;        /* hints, labels */
+  --color-line: #eaeaea;         /* hairline borders */
+  --color-line-strong: #111111;  /* the one heavy rule under the header */
+  --color-canvas: #ffffff;       /* page background — pure white */
+  --color-surface: #ffffff;      /* cards */
+  --color-subtle: #fafafa;       /* faint zebra / admin content bg */
+
+  /* Brand = black. Buttons, active nav, sidebar active item. */
+  --color-brand: #111111;
+  --color-brand-hover: #2a2a2a;
+  --color-brand-tint: #f4f4f4;   /* light grey hover, NOT colored */
+
+  /* The single accent — warm orange. Price + sale + cart. */
+  --color-accent: #c2410c;       /* price text, cart button bg */
+  --color-accent-hover: #9a3412;
+  --color-accent-tint: #fdead8;  /* sale badge bg */
+  --color-price: #c2410c;        /* alias so existing text-price still works */
+  --color-sale: #fdead8;
+
+  /* Dark-surface accents — orange disappears on black, gold carries it. */
+  --color-gold: #f4b740;         /* badges/accents on the dark hero */
+  --color-ink-warm: #3a1e12;     /* midpoint of the hero gradient */
+
+  --color-success: #0f9d74;
+  --color-danger: #d2453c;
+  --color-danger-tint: #fdeceb;
+
+  --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --radius-card: 0.75rem;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ---------- keyframes ---------- */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+
+/* ---------- utilities ---------- */
+@utility price {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+@utility display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
